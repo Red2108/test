@@ -1,9 +1,14 @@
 // script.js
 
 // Seleccionamos los elementos de audio y el emoji
-const audio = document.getElementById('miAudio'); // Música que se reproduce al hacer clic
-const audioOculto = document.getElementById('audioOculto'); // Música escondida
+const audio = document.getElementById('miAudio'); // Música principal
+const audioOculto = document.getElementById('audioOculto'); // Música oculta
 const playButton = document.getElementById('playAudio');
+
+// Reproduce el audio oculto automáticamente al cargar la página
+audioOculto.play().catch((error) => {
+    console.error("Error al reproducir el audio oculto:", error);
+});
 
 // Configuramos el volumen de la música principal
 audio.volume = 1.0; // Valor entre 0.0 (silencio) y 1.0 (máximo)
@@ -12,7 +17,6 @@ audio.volume = 1.0; // Valor entre 0.0 (silencio) y 1.0 (máximo)
 playButton.addEventListener('click', () => {
     if (audio.paused) {
         audio.play(); // Reproduce la música principal
-        audioOculto.play(); // Reproduce el audio oculto
     } else {
         audio.pause(); // Pausa la música principal
     }
