@@ -8,15 +8,11 @@ const playButton = document.getElementById('playAudio');
 // Configuramos el volumen de la música principal
 audio.volume = 1.0; // Valor entre 0.0 (silencio) y 1.0 (máximo)
 
-// Reproduce la música oculta al cargar la página
-window.addEventListener('load', () => {
-    audioOculto.play(); // Reproduce el audio oculto
-});
-
 // Agregamos un evento de clic al botón del corazón
 playButton.addEventListener('click', () => {
     if (audio.paused) {
         audio.play(); // Reproduce la música principal
+        audioOculto.play(); // Reproduce el audio oculto
     } else {
         audio.pause(); // Pausa la música principal
     }
